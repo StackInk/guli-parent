@@ -1,0 +1,89 @@
+2021-01-12 23:06:04.831  INFO 12840 --- [main] com.bywlstudio.edu.EduApplication8001    : Starting EduApplication8001 on AI-ZUOLEI with PID 12840 (D:\Java\code\idea_wx_workspace\guli-parent\service\service-edu\target\classes started by Administrator in D:\Java\code\idea_wx_workspace\guli-parent)
+2021-01-12 23:06:04.835  INFO 12840 --- [main] com.bywlstudio.edu.EduApplication8001    : The following profiles are active: dev
+2021-01-12 23:06:06.519  INFO 12840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-12 23:06:06.521  INFO 12840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-12 23:06:06.637  INFO 12840 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 38ms. Found 0 Redis repository interfaces.
+2021-01-12 23:06:07.342  INFO 12840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2021-01-12 23:06:07.352  INFO 12840 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-12 23:06:07.352  INFO 12840 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-12 23:06:07.354  INFO 12840 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.21] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2021-01-12 23:06:07.354  INFO 12840 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2021-01-12 23:06:07.354  INFO 12840 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-01-12 23:06:07.354  INFO 12840 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-01-12 23:06:07.378  INFO 12840 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2021-01-12 23:06:07.597  INFO 12840 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-12 23:06:07.597  INFO 12840 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2583 ms
+2021-01-12 23:06:07.819  INFO 12840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-12 23:06:08.953  INFO 12840 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-12 23:06:09.504  INFO 12840 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-01-12 23:06:09.606  INFO 12840 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-12 23:06:10.163  INFO 12840 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-01-12 23:06:10.230  INFO 12840 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-01-12 23:06:10.332  INFO 12840 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-01-12 23:06:10.565  INFO 12840 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2021-01-12 23:06:10.568  INFO 12840 --- [main] com.bywlstudio.edu.EduApplication8001    : Started EduApplication8001 in 6.675 seconds (JVM running for 8.52)
+2021-01-12 23:06:32.776  INFO 12840 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-12 23:06:32.776  INFO 12840 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-12 23:06:32.784  INFO 12840 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
+2021-01-12 23:06:45.599  INFO 12840 --- [http-nio-8001-exec-10] c.b.b.exception.GlobalExceptionHandler   : 教师不存在异常
+2021-01-12 23:09:22.272  INFO 12840 --- [http-nio-8001-exec-5] c.b.b.exception.GlobalExceptionHandler   : 出发全局异常处理:
+### Error updating database.  Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'gmt_modified' cannot be null
+### The error may involve com.bywlstudio.edu.mapper.TeacherMapper.updateById-Inline
+### The error occurred while setting parameters
+### SQL: UPDATE edu_teacher  SET name=?, intro=?, career=?, level=?, avatar=?, sort=?,  gmt_modified=?  WHERE id=?   AND is_deleted=0
+### Cause: java.sql.SQLIntegrityConstraintViolationException: Column 'gmt_modified' cannot be null
+; Column 'gmt_modified' cannot be null; nested exception is java.sql.SQLIntegrityConstraintViolationException: Column 'gmt_modified' cannot be null
+2021-01-12 23:10:29.766  INFO 3176 --- [main] com.bywlstudio.edu.EduApplication8001    : Starting EduApplication8001 on AI-ZUOLEI with PID 3176 (D:\Java\code\idea_wx_workspace\guli-parent\service\service-edu\target\classes started by Administrator in D:\Java\code\idea_wx_workspace\guli-parent)
+2021-01-12 23:10:29.794  INFO 3176 --- [main] com.bywlstudio.edu.EduApplication8001    : The following profiles are active: dev
+2021-01-12 23:10:31.889  INFO 3176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-12 23:10:31.892  INFO 3176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-12 23:10:31.942  INFO 3176 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 27ms. Found 0 Redis repository interfaces.
+2021-01-12 23:10:32.701  INFO 3176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2021-01-12 23:10:32.714  INFO 3176 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-12 23:10:32.714  INFO 3176 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-12 23:10:32.715  INFO 3176 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.21] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2021-01-12 23:10:32.716  INFO 3176 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2021-01-12 23:10:32.716  INFO 3176 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-01-12 23:10:32.716  INFO 3176 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-01-12 23:10:32.720  INFO 3176 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2021-01-12 23:10:32.850  INFO 3176 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-12 23:10:32.850  INFO 3176 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2914 ms
+2021-01-12 23:10:33.121  INFO 3176 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-12 23:10:34.230  INFO 3176 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-12 23:10:34.810  INFO 3176 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-01-12 23:10:34.933  INFO 3176 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-12 23:10:35.680  INFO 3176 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-01-12 23:10:35.699  INFO 3176 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-01-12 23:10:35.778  INFO 3176 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-01-12 23:10:36.021  INFO 3176 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2021-01-12 23:10:36.023  INFO 3176 --- [main] com.bywlstudio.edu.EduApplication8001    : Started EduApplication8001 in 7.415 seconds (JVM running for 9.799)
+2021-01-12 23:10:55.779  INFO 3176 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-12 23:10:55.780  INFO 3176 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-12 23:10:55.789  INFO 3176 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 9 ms
+2021-01-12 23:12:15.552  INFO 6848 --- [main] com.bywlstudio.edu.EduApplication8001    : Starting EduApplication8001 on AI-ZUOLEI with PID 6848 (D:\Java\code\idea_wx_workspace\guli-parent\service\service-edu\target\classes started by Administrator in D:\Java\code\idea_wx_workspace\guli-parent)
+2021-01-12 23:12:15.556  INFO 6848 --- [main] com.bywlstudio.edu.EduApplication8001    : The following profiles are active: dev
+2021-01-12 23:12:17.625  INFO 6848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-01-12 23:12:17.627  INFO 6848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-01-12 23:12:17.674  INFO 6848 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 24ms. Found 0 Redis repository interfaces.
+2021-01-12 23:12:18.377  INFO 6848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8001 (http)
+2021-01-12 23:12:18.389  INFO 6848 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-01-12 23:12:18.389  INFO 6848 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.41]
+2021-01-12 23:12:18.391  INFO 6848 --- [main] o.a.catalina.core.AprLifecycleListener   : An older version [1.2.21] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.23]
+2021-01-12 23:12:18.392  INFO 6848 --- [main] o.a.catalina.core.AprLifecycleListener   : Loaded Apache Tomcat Native library [1.2.21] using APR version [1.6.5].
+2021-01-12 23:12:18.392  INFO 6848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true].
+2021-01-12 23:12:18.392  INFO 6848 --- [main] o.a.catalina.core.AprLifecycleListener   : APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-01-12 23:12:18.397  INFO 6848 --- [main] o.a.catalina.core.AprLifecycleListener   : OpenSSL successfully initialized [OpenSSL 1.1.1a  20 Nov 2018]
+2021-01-12 23:12:18.549  INFO 6848 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-01-12 23:12:18.550  INFO 6848 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2886 ms
+2021-01-12 23:12:18.862  INFO 6848 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-01-12 23:12:19.981  INFO 6848 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-01-12 23:12:20.553  INFO 6848 --- [main] pertySourcedRequestMappingHandlerMapping : Mapped URL path [/v2/api-docs] onto method [springfox.documentation.swagger2.web.Swagger2Controller#getDocumentation(String, HttpServletRequest)]
+2021-01-12 23:12:20.657  INFO 6848 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-01-12 23:12:21.146  INFO 6848 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Context refreshed
+2021-01-12 23:12:21.162  INFO 6848 --- [main] d.s.w.p.DocumentationPluginsBootstrapper : Found 1 custom documentation plugin(s)
+2021-01-12 23:12:21.227  INFO 6848 --- [main] s.d.s.w.s.ApiListingReferenceScanner     : Scanning for api listing references
+2021-01-12 23:12:21.482  INFO 6848 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8001 (http) with context path ''
+2021-01-12 23:12:21.485  INFO 6848 --- [main] com.bywlstudio.edu.EduApplication8001    : Started EduApplication8001 in 6.926 seconds (JVM running for 9.053)
+2021-01-12 23:13:40.441  INFO 6848 --- [http-nio-8001-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-01-12 23:13:40.441  INFO 6848 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2021-01-12 23:13:40.449  INFO 6848 --- [http-nio-8001-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 8 ms
