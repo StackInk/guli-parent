@@ -28,7 +28,7 @@ export const constantRouterMap = [
   {
     path: '/',
     component: Layout,
-    redirect: '/dashboard',
+    redirect: '/edu/teacher',
     name: 'Dashboard',
     hidden: true,
     children: [{
@@ -38,17 +38,17 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/example',
+    path: '/edu/teacher',
     component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
+    redirect: '/edu/teacher/list',
+    name: 'Teacher',
+    meta: { title: '讲师管理', icon: 'example' },
     children: [
       {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
+        path: 'list',
+        name: 'TeacherList',
+        component: () => import('@/views/edu/teacher'),
+        meta: { title: '讲师列表', icon: 'table' }
       },
       {
         path: 'tree',

@@ -1,7 +1,6 @@
 package com.bywlstudio.edu.controller;
 
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.bywlstudio.base.exception.TeacherNotFoundException;
@@ -13,6 +12,7 @@ import com.bywlstudio.edu.service.ITeacherService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,6 +31,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/edu/teacher")
 @CrossOrigin
+@Slf4j
 public class TeacherController {
 
 
@@ -82,7 +83,9 @@ public class TeacherController {
         if(!StringUtils.isEmpty(teacherQuery.getEnd())){
             wrapper.lt("gmt_create",teacherQuery.getEnd());
         }
+
         teacherService.page(page,wrapper);
+        log.info("page:{}",page);
 
         return R.ok().data("total",page.getTotal()).data("data",page.getRecords());
     }

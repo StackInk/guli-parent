@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.*;
 
 import java.util.Date;
 import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -51,6 +53,7 @@ public class Teacher implements Serializable {
 
     @ApiModelProperty(value = "逻辑删除 1（true）已删除， 0（false）未删除",hidden = true)
     @TableLogic
+    @JsonIgnore
     private Boolean isDeleted;
 
     @ApiModelProperty(value = "创建时间",hidden = true)
