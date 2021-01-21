@@ -1,5 +1,40 @@
 <template>
-  <div>
+  <div class="app-container">
+    <!--查询表单-->
+    <el-form :inline="true" class="demo-form-inline">
+      <el-form-item>
+        <el-input v-model="teacherQuery.name" placeholder="讲师名"/>
+      </el-form-item>
+
+      <el-form-item>
+        <el-select v-model="teacherQuery.level" clearable placeholder="讲师头衔">
+          <el-option :value="1" label="高级讲师"/>
+          <el-option :value="2" label="首席讲师"/>
+        </el-select>
+      </el-form-item>
+
+      <el-form-item label="添加时间">
+        <el-date-picker
+          v-model="teacherQuery.begin"
+          type="datetime"
+          placeholder="选择开始时间"
+          value-format="yyyy-MM-dd HH:mm:ss"
+          default-time="00:00:00"
+        />
+      </el-form-item>
+      <el-form-item>
+        <el-date-picker
+          v-model="teacherQuery.end"
+          type="datetime"
+          placeholder="选择截止时间"
+          value-format="yyyy-MM-dd HH:mm:ss"
+          default-time="00:00:00"
+        />
+      </el-form-item>
+
+      <el-button type="primary" icon="el-icon-search" @click="getTeacherList()">查询</el-button>
+      <el-button type="default" @click="resetData()">清空</el-button>
+    </el-form>
     <el-table
       :data="list"
       border
@@ -15,7 +50,7 @@
         </template>
       </el-table-column>
 
-      <el-table-column prop="name" label="名称" width="80" />
+      <el-table-column prop="name" label="名称" width="130" />
 
       <el-table-column label="头衔" width="80">
         <template slot-scope="scope">
@@ -31,36 +66,67 @@
 
       <el-table-column label="操作" width="200" align="center">
         <template slot-scope="scope">
-          <router-link :to="'/teacher/edit/'+scope.row.id">
+          <router-link :to="'/edu/teacher/edit/'+scope.row.id">
             <el-button type="primary" size="mini" icon="el-icon-edit">修改</el-button>
           </router-link>
           <el-button type="danger" size="mini" icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
         </template>
       </el-table-column>
     </el-table>
+    <!-- 分页 -->
+    <el-pagination
+      :current-page="page"
+      :page-size="limit"
+      :total="total"
+      style="padding: 30px 0; text-align: center;"
+      layout="total, prev, pager, next, jumper"
+      @current-change="getTeacherList"
+    />
   </div>
 </template>
 
 <script>
-import {getList} from "@/api/edu/teacher"
+import teacher from "@/api/edu/teacher"
 export default {
     data(){
         return{
             page : 1 ,
             limit : 10 ,
             total : 0 ,
-            list : {},
+            list : null,
             teacherQuery :{}
         }
     },
     methods:{
-        getTeacherList(){
-            getList(this.page,this.limit,this.teacherQuery)
+        getTeacherList(page = 1){
+          console.log("查询方法触发")
+          this.page = page ;
+            teacher.getList(this.page,this.limit,this.teacherQuery)
                 .then(({data})=>{
                     this.total = data.total ;
                     this.list = [...data.data]
                     console.log(this.list)
                 })
+        },
+        removeDataById(id){
+            this.$confirm('此操作将永久删除讲师记录, 是否继续?', '提示', {
+                confirmButtonText: '确定',
+                cancelButtonText: '取消',
+                type: 'warning'
+            }).then(() => {  
+                teacher.deleteTeacher(id)
+                    .then(response =>{
+                    this.$message({
+                        type: 'success',
+                        message: '删除成功!'
+                    });
+                    this.getTeacherList()
+                })
+            }) 
+        },
+        resetData(){
+          this.teacherQuery = {} ;
+          this.getTeacherList();
         }
     },
     created(){
@@ -71,5 +137,7 @@ export default {
 </script>
 
 <style>
-
+  .app-container{
+    margin : 10px ;
+  }
 </style>

@@ -83,6 +83,7 @@ public class TeacherController {
         if(!StringUtils.isEmpty(teacherQuery.getEnd())){
             wrapper.lt("gmt_create",teacherQuery.getEnd());
         }
+        wrapper.orderByDesc("gmt_modified");
 
         teacherService.page(page,wrapper);
         log.info("page:{}",page);
@@ -92,6 +93,7 @@ public class TeacherController {
 
     @PostMapping
     public R addTeacher(@RequestBody Teacher teacher){
+        log.info("teacher:{}",teacher);
         boolean save = teacherService.save(teacher);
         return save ? R.ok() : R.error();
     }
