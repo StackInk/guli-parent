@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
  * @Description:
  */
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/edu/user")
 @CrossOrigin
 public class EduLoginController {
 
@@ -20,7 +20,7 @@ public class EduLoginController {
 
     @GetMapping("/info")
     public R info(){
-        return R.ok().data("roles","[admin]").data("name","admin").data("avatar","https://mmbiz.qpic.cn/mmbiz_jpg/iaIdQfEric9Tyg3fTfFiaDBCXTdOyabicCfWEhtcV2S9cvdaCFWUJpP4NuOXNbb6vsKSYUMDXzt4CPapibkB5FQLTyw/640?wx_fmt=jpeg&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1");
+        return R.ok().data("roles","[admin]").data("name","admin").data("avatar","https://edu-stream001.oss-cn-beijing.aliyuncs.com/2021-01-24/fe0b8077f842408b9f7322a277ab7779-955accc9694a6f483d3c7065fc4bc44f.jpg");
     }
 
 }

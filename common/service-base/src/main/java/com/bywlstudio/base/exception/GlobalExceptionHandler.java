@@ -38,4 +38,12 @@ public class GlobalExceptionHandler {
         return R.error().code(e.getCode()).message(e.getMessage());
     }
 
+
+    @ExceptionHandler(FileUploadException.class)
+    @ResponseBody
+    public R fileUploadException(FileUploadException e){
+        log.info("文件上传失败"+e.getMessage());
+        return R.error().code(e.getCode()).message(e.getMessage());
+    }
+
 }
