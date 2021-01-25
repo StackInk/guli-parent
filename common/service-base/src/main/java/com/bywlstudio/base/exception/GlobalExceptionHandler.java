@@ -46,4 +46,11 @@ public class GlobalExceptionHandler {
         return R.error().code(e.getCode()).message(e.getMessage());
     }
 
+    @ExceptionHandler(ExcelFileNullException.class)
+    @ResponseBody
+    public R excelFileNullException(ExcelFileNullException e){
+        log.info("Excel文件为空"+e.getMessage());
+        return R.error().code(e.getCode()).message(e.getMessage());
+    }
+
 }
