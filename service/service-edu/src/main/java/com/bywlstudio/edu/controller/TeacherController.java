@@ -29,11 +29,10 @@ import java.util.List;
  */
 @Api(description = "教师管理")
 @RestController
-@RequestMapping("/edu/teacher")
+@RequestMapping("/teacher")
 @CrossOrigin
 @Slf4j
 public class TeacherController {
-
 
     @Resource
     private ITeacherService teacherService ;

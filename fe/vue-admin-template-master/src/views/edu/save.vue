@@ -28,21 +28,12 @@
           <!-- 文件上传按钮 -->
           <el-button type="primary" icon="el-icon-upload" @click="imagecropperShow=true">更换头像
           </el-button>
-
-          <!--
-                v-show：是否显示上传组件
-                :key：类似于id，如果一个页面多个图片上传控件，可以做区分
-                :url：后台上传的url地址
-                @close：关闭上传组件
-                @crop-upload-success：上传成功后的回调 
-                    <input type="file" name="file"/>
-                -->
           <image-cropper
                         v-show="imagecropperShow"
                         :width="300"
                         :height="300"
                         :key="imagecropperKey"
-                        :url="BASE_API+'/oss/edu'"
+                        :url="BASE_API+'/ossservice/edu'"
                         field="file"
                         @close="close"
                         @crop-upload-success="cropSuccess"/>
@@ -76,7 +67,7 @@ export default {
             },
             BASE_API:process.env.BASE_API, //获取dev.env.js里面地址
             imagecropperShow : false ,
-            imagecropperKey : 1 
+            imagecropperKey : 0 
         }
     },
     created(){
@@ -88,15 +79,15 @@ export default {
             this.imagecropperKey = this.imagecropperKey+1
         },
         cropSuccess(response){
-            this.close();
             this.teacher.avatar = response.data.url ;
+            this.close();
         },
         init(){
             if(this.$route.params && this.$route.params.id){
                 const id = this.$route.params.id;
                 this.getTeacherInfo(id);
             }else{
-                this.teacher = {avatar: ''}
+                this.teacher = {}
             }
         },
 

@@ -21,7 +21,7 @@ import javax.annotation.Resource;
  */
 @Api(description = "OSS上传接口")
 @RestController
-@RequestMapping("/oss/edu")
+@RequestMapping("/edu")
 @CrossOrigin
 public class OssFileController {
 
