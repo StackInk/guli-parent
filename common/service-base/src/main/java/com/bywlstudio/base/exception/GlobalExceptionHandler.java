@@ -20,7 +20,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public R exception(Exception e){
         log.info("出发全局异常处理:{}",e.getMessage());
-        return R.error().message("全局异常处理");
+        return R.error().message("全局异常处理:"+e.getMessage());
     }
 
 
