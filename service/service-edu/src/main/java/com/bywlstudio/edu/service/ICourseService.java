@@ -14,5 +14,11 @@ import com.bywlstudio.edu.entity.vo.ClassInfoVo;
  */
 public interface ICourseService extends IService<Course> {
 
-    void createCourse(ClassInfoVo classInfoVo);
+    String createCourse(ClassInfoVo classInfoVo);
+
+    ClassInfoVo selectById(String id);
+
+    void updateCourse(ClassInfoVo classInfoVo);
+
+    void deleteCourse(String id);
 }

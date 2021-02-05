@@ -8,6 +8,12 @@ export default{
       data:teacherQuery
     })
   },
+  getListNotPage() {
+    return request({
+      url: `/eduservice/teacher`,
+      method: 'get',
+    })
+  },
   deleteTeacher(id) {
     return request({
       url: `/eduservice/teacher/${id}`,

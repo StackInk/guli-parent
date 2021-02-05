@@ -9,6 +9,7 @@ import com.bywlstudio.edu.service.ICourseService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,8 +29,43 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     @Resource
     private ICourseDescriptionService courseDescriptionService ;
 
+
     @Override
-    public void createCourse(ClassInfoVo classInfoVo) {
+    public void deleteCourse(String id) {
+        courseDescriptionService.removeById(id);
+        baseMapper.deleteById(id);
+    }
+
+    @Override
+    public void updateCourse(ClassInfoVo classInfoVo) {
+        Course course = new Course();
+        BeanUtils.copyProperties(classInfoVo,course);
+        baseMapper.updateById(course);
+
+        //更新课程描述
+        CourseDescription courseDescription = new CourseDescription();
+        BeanUtils.copyProperties(classInfoVo,courseDescription);
+        courseDescriptionService.updateById(courseDescription);
+
+    }
+
+    @Override
+    public ClassInfoVo selectById(String id) {
+        Course course = baseMapper.selectById(id);
+        ClassInfoVo classInfoVo = new ClassInfoVo();
+        BeanUtils.copyProperties(course,classInfoVo);
+
+        //查询课程描述
+        CourseDescription description = courseDescriptionService.getById(id);
+        classInfoVo.setDescription(description.getDescription());
+
+        return classInfoVo;
+    }
+
+
+
+    @Override
+    public String createCourse(ClassInfoVo classInfoVo) {
         //插入课程信息
         Course course = new Course();
         BeanUtils.copyProperties(classInfoVo,course);
@@ -46,6 +82,8 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         if(i <= 0 || !j){
             throw new RuntimeException("课程增加失败");
         }
+
+        return course.getId();
 
     }
 }

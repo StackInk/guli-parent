@@ -33,7 +33,26 @@ public class CourseController {
 
     @PostMapping
     public R createCourse(@RequestBody ClassInfoVo classInfoVo){
-        courseService.createCourse(classInfoVo);
+        String courseId = courseService.createCourse(classInfoVo);
+        return R.ok().data("courseId",courseId);
+    }
+
+
+    @GetMapping("{id}")
+    public R courseById(@PathVariable String id){
+        ClassInfoVo classInfoVo = courseService.selectById(id);
+        return R.ok().data("classInfo",classInfoVo);
+    }
+
+    @PutMapping
+    public R updateCourse(@RequestBody ClassInfoVo classInfoVo){
+        courseService.updateCourse(classInfoVo);
+        return R.ok();
+    }
+
+    @DeleteMapping("{id}")
+    public R deleteCourse(@PathVariable String id){
+        courseService.deleteCourse(id);
         return R.ok();
     }
 

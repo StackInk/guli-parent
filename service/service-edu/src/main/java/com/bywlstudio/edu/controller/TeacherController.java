@@ -40,7 +40,6 @@ public class TeacherController {
     @GetMapping
     @ApiOperation("教师列表")
     public R list(){
-
         return R.ok().data("data",teacherService.list(null));
     }
 

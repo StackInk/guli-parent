@@ -1,9 +1,14 @@
 package com.bywlstudio.edu.controller;
 
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import com.bywlstudio.common.entity.R;
+import com.bywlstudio.edu.entity.vo.ChapterVo;
+import com.bywlstudio.edu.service.IChapterService;
+import org.omg.SendingContext.RunTime;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.web.bind.annotation.RestController;
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * <p>
@@ -16,6 +21,25 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/chapter")
 public class ChapterController {
+
+    @Resource
+    private IChapterService chapterService ;
+
+
+    @GetMapping("{id}")
+    public R chapterVoList(@PathVariable("id") String courseId){
+        List<ChapterVo> chapterVos = chapterService.chapterVoList(courseId);
+        if(chapterVos.isEmpty()){
+            throw new RuntimeException("章节不存在");
+        }
+        return R.ok().data("chapters",chapterVos);
+    }
+
+
+
+
+
+
 
 }
 
